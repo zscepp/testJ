@@ -1,6 +1,61 @@
 <html>
-<header><title>This is CI CD</title></header>
-<body>
-Hello world
-</body>
-</html>
+    <head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js&quot;&gt;&lt;/script>
+        </head>
+        <body>
+            <div class="container">
+                <script id="blog" type="template">
+                    <div class="col-md-3">
+                        <a href="{{module_url}}">
+                            <div class="thumbnail">
+                                <imgsrc="{{image_url}}" class="img-rounded img-responsive" width="100%"></img>
+                                <div class="caption">
+                                    <p class="lead">{{price}}</p>
+                                    <p>{{name}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </script>
+            </div>
+            <script>
+            $(function () {
+                varknoband_data = [
+                        {
+                            "name": "Product tabs- PrestashopAddons",
+                            "image_url": "https:\/\/www.knowband.com\/image\/data\/Plugin%20Logo\/Product-Tabs-logo-1000-x-1000.jpg",
+                            "module_url": "https:\/\/www.knowband.com\/prestashop-product-tabs",
+                            "price": "$25"
+                        },
+                        {
+                            "name": "Prestashop Mobile App builder",
+                            "image_url": "https:\/\/www.knowband.com\/image\/data\/Plugin%20Logo\/Mobile-app-prestashop-plugin-500-X-500.jpg",
+                            "module_url": "https:\/\/www.knowband.com\/prestashop-mobile-app-builder",
+                            "price": "$30"
+                        },
+                        {
+                            "name": "Return Manager - Magento Extensions",
+                            "image_url": "https:\/\/www.knowband.com\/image\/data\/Plugin%20Logo\/return-manager.png",
+                            "module_url": "https:\/\/www.knowband.com\/magento-return-manager",
+                            "price": "$50"
+                        },
+                        {
+                            "name": "Web Push Notification - PrestashopAddons",
+                            "image_url": "https:\/\/www.knowband.com\/image\/data\/Plugin%20Logo\/Web-Push-Notification-plugin.jpg",
+                            "module_url": "https:\/\/www.knowband.com\/prestashop-web-push-notifications",
+                            "price": "$43"
+                        }
+                    ];
+                var temp = $.trim($('#blog').html());
+                $.each(knoband_data, function (index, obj) {
+                    var x = temp.replace(/{{name}}/ig, obj.name);
+                    x = x.replace(/{{image_url}}/ig, obj.image_url);
+                    x = x.replace(/{{price}}/ig, obj.price);
+                    x = x.replace(/{{module_url}}/ig, obj.module_url);
+                    $('.container').append(x);
+                });
+            });
+        </script>
+        </body>
+    </html>
